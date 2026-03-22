@@ -6,14 +6,17 @@ class CommandLineInterface
 {
     static void Main(string[] args) {
         Console.WriteLine("Welcome to the PAJTK equipment rental service");
-        int choice = chooseMenu(1, "What would you like to do?\n1. PLACEHOLDER\n0. exit");
-        switch (choice)
+        while (true)
         {
-            case 1:
-                Console.WriteLine("s");
-                break;
-            case 0:
-                return;
+            int choice = chooseMenu(1, "What would you like to do?\n1. PLACEHOLDER\n0. exit");
+            switch (choice)
+            {
+                case 1:
+                    Console.WriteLine("s");
+                    break;
+                case 0:
+                    return;
+            }
         }
     }
 
