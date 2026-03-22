@@ -5,6 +5,22 @@ namespace equipment_rental_service;
 
 public class UserService
 {
+    private UserService _service;
+    private UserService userService
+    {
+        get
+        {
+            if (_service == null)
+            {
+                _service=  new UserService();
+                return _service;
+            }
+            else
+            {
+                return _service;
+            }
+        }
+    }
     private List<Person> Persons { get; set; }
 
     public UserService()
@@ -21,7 +37,7 @@ public class UserService
         }
     }
 
-    public void Save()
+    private void Save()
     {
         using (var writer = new StreamWriter("users.csv"))
             using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
@@ -29,4 +45,11 @@ public class UserService
                 csv.WriteRecords(Persons);
                 }
     }
+
+    public void addPerson(Person person)
+    {
+        Persons.Add(person);
+        Save();
+    }
+    
 }
