@@ -9,14 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2bf23bb0-08c8-4a91-8e39-2a978f3adfd3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.equipment-rental-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.equipment-rental-service/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Camera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Camera.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommandLineInterface.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CommandLineInterface.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItemService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ItemService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Laptop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Laptop.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Person.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Person.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rental.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rental.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RentalRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RentalRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,45 +137,6 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ItemService.cs</url>
-          <line>101</line>
-          <properties documentPath="$PROJECT_DIR$/ItemService.cs" containingFunctionPresentation="Method 'GetRentals'">
-            <startOffsets>
-              <option value="3177" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3196" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ItemService.cs</url>
-          <line>97</line>
-          <properties documentPath="$PROJECT_DIR$/ItemService.cs" containingFunctionPresentation="Method 'GetRentals'">
-            <startOffsets>
-              <option value="3115" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3143" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ItemService.cs</url>
-          <line>95</line>
-          <properties documentPath="$PROJECT_DIR$/ItemService.cs" containingFunctionPresentation="Method 'GetRentals'">
-            <startOffsets>
-              <option value="3061" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3084" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
