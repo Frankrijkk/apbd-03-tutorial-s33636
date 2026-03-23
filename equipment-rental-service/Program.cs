@@ -10,7 +10,7 @@ class CommandLineInterface
         Console.WriteLine("Welcome to the PAJTK equipment rental service");
         while (true)
         {
-            int choice = ChooseMenu(0,1, "What would you like to do?\n1. PLACEHOLDER\n0. exit");
+            int choice = ChooseMenu(0,1, "What would you like to do?\n1. AddUser\n0. exit");
             switch (choice)
             {
                 case 1:
@@ -45,7 +45,7 @@ class CommandLineInterface
                 }
 
                 Person p = new Person(name, lastName, isEmployee);
-                
+                UserService.Service.AddPerson((p));
 
 
             }
