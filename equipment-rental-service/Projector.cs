@@ -19,7 +19,7 @@ public class Projector : EquipmentItem
         Contrast = contrast;
         this.Resolution = Resolution;
         DailyPenalty = 10f;
-        Type = EquipmentType.Laptop;
+        Type = EquipmentType.Projector;
     }
     public override string FormatProperties()
     {

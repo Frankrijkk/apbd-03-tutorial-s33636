@@ -119,4 +119,9 @@ public class ItemRepository
 
         return null; //should never happen
     }
+
+    public List<EquipmentItem> GetAll()
+    {
+        return _items;
+    }
 }

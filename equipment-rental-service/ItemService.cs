@@ -71,4 +71,19 @@ public class ItemService
         _itemRepository.Save();
         _rentalRepository.Save();
     }
+
+    public string ListItems()
+    {
+        List<EquipmentItem> l = _itemRepository.GetAll();
+        string finalString = "";
+        foreach (var item in l)
+        {
+            string[] properties = item.FormatProperties().Split("+++");
+            finalString += item.Type + ": " + item.Name;
+            foreach (string property in properties)finalString += " - " + property;
+            finalString+=". Available: " + item.CountAvailable +
+                           ". Penalty per day for Extending the rent: " + item.DailyPenalty+"\n";
+        }
+        return finalString;
+    }
 }

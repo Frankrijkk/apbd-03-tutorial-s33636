@@ -9,8 +9,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2bf23bb0-08c8-4a91-8e39-2a978f3adfd3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.equipment-rental-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.equipment-rental-service/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommandLineInterface.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CommandLineInterface.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ItemRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ItemRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ItemService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ItemService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RentalSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RentalSystem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

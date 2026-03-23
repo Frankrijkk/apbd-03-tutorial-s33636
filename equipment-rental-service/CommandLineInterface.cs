@@ -1,5 +1,5 @@
 ﻿
-using System.Runtime.CompilerServices;
+
 
 namespace equipment_rental_service;
 
@@ -12,7 +12,7 @@ class CommandLineInterface
         Console.WriteLine("Welcome to the PJATK equipment rental service");
         while (true)
         {
-            int choice = ChooseMenu(0,5, "What would you like to do?\n1. AddUser\n2. Add Equipment item\n3. Rent a piece of equipment\n4. Return a piece of equipment\n5. Confirm penalty payment\n0. exit");
+            int choice = ChooseMenu(0,6, "What would you like to do?\n1. AddUser\n2. Add Equipment item\n3. Rent a piece of equipment\n4. Return a piece of equipment\n5. Confirm penalty payment\n6. Display Equipment List\n0. exit");
             switch (choice)
             {
                 case 1:
@@ -28,7 +28,10 @@ class CommandLineInterface
                     HandleReturnItem(rentalSystem);
                     break;
                 case 5:
-                    HandlePay();
+                    HandlePay(rentalSystem.UserService);
+                    break;
+                case 6:
+                    HandleDisplayEquipment(rentalSystem.ItemService);
                     break;
                 case 0:
                     rentalSystem.SaveAll();
@@ -37,10 +40,28 @@ class CommandLineInterface
         }
     }
 
-    private void HandlePay()
+    private void HandleDisplayEquipment(ItemService service)
     {
-        throw new NotImplementedException();
+        string itemlist = service.ListItems();
+        Console.WriteLine(itemlist);
     }
+
+    private void HandlePay(UserService userService)
+    {
+        Console.WriteLine("What is the first name of the renter?");
+        string? name = Console.ReadLine();
+        Console.WriteLine("What is the last name of the item?");
+        string? lastName = Console.ReadLine();
+        Person? p = userService.Get(name, lastName);
+        if (p is null)
+        {
+            Console.WriteLine("Person was not found in the system");
+            return;
+        }
+
+        if(userService.ClearDebt(p)) Console.WriteLine("Succesfuly removed user Debt");
+        else Console.WriteLine("Something went wrong");
+    } 
 
     private void HandleRentItem(RentalSystem rentalSystem)
     {

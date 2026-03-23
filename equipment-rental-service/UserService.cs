@@ -28,5 +28,12 @@ public class UserService
     {
         _userRepository.Save();
     }
-    
+
+    public bool ClearDebt(Person person)
+    {
+        person.Debt = 0;
+        UpdateUsers();
+        return true;
+
+    }
 }

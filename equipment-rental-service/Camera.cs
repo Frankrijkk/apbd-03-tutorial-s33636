@@ -18,7 +18,7 @@ public class Camera :EquipmentItem
         this.Lens = Lens;
         this.Resolution = Resolution;
         DailyPenalty = 10f;
-        Type = EquipmentType.Laptop;
+        Type = EquipmentType.Camera;
     }
     public override string FormatProperties()
     {
