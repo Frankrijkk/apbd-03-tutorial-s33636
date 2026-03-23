@@ -31,7 +31,7 @@ class CommandLineInterface
                     HandlePay();
                     break;
                 case 0:
-                    //rentalSystem.SaveAll();
+                    rentalSystem.SaveAll();
                     return;
             }
         }

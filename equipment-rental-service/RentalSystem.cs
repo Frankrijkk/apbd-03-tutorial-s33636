@@ -20,4 +20,10 @@ public class RentalSystem
         UserRepository userRepository = new  UserRepository();
         UserService = new  UserService(userRepository);
     }
+
+    public void SaveAll()
+    {
+        ItemService.SaveAll();
+        UserService.UpdateUsers();
+    }
 }

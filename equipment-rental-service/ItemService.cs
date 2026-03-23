@@ -65,4 +65,10 @@ public class ItemService
         return "Return item success. No penalty issued";
 
     }
+
+    public void SaveAll()
+    {
+        _itemRepository.Save();
+        _rentalRepository.Save();
+    }
 }
