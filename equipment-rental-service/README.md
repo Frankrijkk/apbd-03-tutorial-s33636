@@ -14,3 +14,6 @@ The project addresses cohesion and coupling by splitting the application into 3 
 Each layer could be replaced with a different implementation and the application would still work. For example The Data layer could be replaced with one thats connected to a database and the CLI could be Replace with a GUI or a web interface.
 I decided to opt for this design because it seemed clear, concise and customizable. THe division makes sense because all the layers interact only with their responsibilities - the Presentation layer doesnt work on the data but just presents them, the Control layer doesnt Print anything and doesnt interact with csv files, and the Data layer doesnt do operations - it just fetches the data (sometimes after filtering).
 
+RUN INSTRUCTION:
+run the main method in the RentalSystem.cs file. the rest will be clear with the CLI.
+dotnet build && dotnet run
