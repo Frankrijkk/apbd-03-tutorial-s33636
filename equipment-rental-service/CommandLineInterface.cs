@@ -4,13 +4,14 @@ namespace equipment_rental_service;
 
 class CommandLineInterface
 {
-    static void Main(string[] args) {
+    
+    public void runMain(string[] args) {
         
         
         Console.WriteLine("Welcome to the PAJTK equipment rental service");
         while (true)
         {
-            int choice = ChooseMenu(0,5, "What would you like to do?\n1. AddUser\n2. Add Equipment item\n3. Rent a piece of equipment\n4. Return a piece of equipment\n5. Confirm penalty payment\n6. Genereate Report\n0. exit");
+            int choice = ChooseMenu(0,5, "What would you like to do?\n1. AddUser\n2. Add Equipment item\n3. Rent a piece of equipment\n4. Return a piece of equipment\n5. Confirm penalty payment\n0. exit");
             switch (choice)
             {
                 case 1:
@@ -28,41 +29,33 @@ class CommandLineInterface
                 case 5:
                     HandlePay();
                     break;
-                case 6:
-                    HandleGenerateReport();
-                    break;
                 case 0:
                     return;
             }
         }
     }
 
-    private static void HandleGenerateReport()
+    private void HandlePay()
     {
         throw new NotImplementedException();
     }
 
-    private static void HandlePay()
+    private void HandleRentItem()
     {
         throw new NotImplementedException();
     }
 
-    private static void HandleRentItem()
+    private void HandleReturnItem()
     {
         throw new NotImplementedException();
     }
 
-    private static void HandleReturnItem()
+    private void HandleAddItem()
     {
         throw new NotImplementedException();
     }
 
-    private static void HandleAddItem()
-    {
-        throw new NotImplementedException();
-    }
-
-    private static void HandleAddPerson()
+    private void HandleAddPerson()
     {
         while (true)
         {
@@ -85,8 +78,8 @@ class CommandLineInterface
                 }
 
                 Person p = new Person(name, lastName, isEmployee);
-                UserService.Service.AddPerson((p));
-
+                if(UserService.Service.AddPerson((p))) return;
+                Console.WriteLine("Person was not added");
 
             }
             catch (FormatException)
