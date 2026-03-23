@@ -1,26 +1,26 @@
-using System.Globalization;
-using CsvHelper;
+
 
 namespace equipment_rental_service;
 
 public class UserService
 {
-    private UserRepository UserRepository;
+    private readonly UserRepository _userRepository;
 
 
     public UserService(UserRepository userRepository)
     {
-        this.UserRepository =  userRepository;
+        this._userRepository =  userRepository;
     }
 
-    public Person? Get(string firstName, string lastName)
+    public Person? Get(string? firstName, string? lastName)
     {
-        return UserRepository.Get(firstName, lastName);
+        if (firstName is not null && lastName is not null) return _userRepository.Get(firstName, lastName);
+        else return null;
     }
     
     public bool Add(Person person)
     {
-        return UserRepository.AddPerson(person);
+        return _userRepository.AddPerson(person);
         
     }
     

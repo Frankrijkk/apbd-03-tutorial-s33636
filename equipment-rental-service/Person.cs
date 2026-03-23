@@ -2,16 +2,16 @@ namespace equipment_rental_service;
 
 public class Person : IEquatable<Person>
 {
-    static int _counter = 0;
+    private static int _counter = 0;
     private int id;
-    public string name { get; }
-    public string lastName { get; }
+    public string Name { get; }
+    public string LastName { get; }
     public PersonType? PersonType{get;set;}
     public Person(string name, string lastName, PersonType? type)
     {
         id = ++_counter;
-        this.name = name;
-        this.lastName = lastName;
+        this.Name = name;
+        this.LastName = lastName;
         this.PersonType = type;
     }
 
@@ -19,7 +19,7 @@ public class Person : IEquatable<Person>
     {
         if (other is null) return false;
         if (ReferenceEquals(this, other)) return true;
-        return name == other.name && lastName==other.lastName;
+        return Name == other.Name && LastName==other.LastName;
     }
 
     public override bool Equals(object? obj)
@@ -29,6 +29,6 @@ public class Person : IEquatable<Person>
 
     public override int GetHashCode()
     {
-        return HashCode.Combine(name, lastName);
+        return HashCode.Combine(Name, LastName);
     }
 }

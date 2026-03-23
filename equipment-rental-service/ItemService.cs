@@ -2,18 +2,20 @@ namespace equipment_rental_service;
 
 public class ItemService
 {
-    ItemRepository itemRepository;
-    RentalRepository RentalRepository;
-    public ItemService(ItemRepository itemRepository)
+    private readonly ItemRepository _itemRepository;
+    private readonly RentalRepository _rentalRepository;
+    public ItemService(ItemRepository itemRepository,RentalRepository rentalRepository)
     {
-        this.itemRepository = itemRepository;
+        this._itemRepository = itemRepository;
+        this._rentalRepository = rentalRepository;
     }
     public bool RentItem(EquipmentItem item,Person person,int length)
     {
-        if (itemRepository.Rent(item))
+        //person not in debt do the uni, person has max 5/2 rentals,
+        if (_itemRepository.Rent(item))
         {
             Rental rental = new Rental(item, person,length);
-            RentalRepository.Add(rental);
+            _rentalRepository.Add(rental);
             return true;
         }
         else
@@ -24,12 +26,13 @@ public class ItemService
 
     public bool Add(EquipmentItem item)
     {
-        return itemRepository.Add(item);
+        return _itemRepository.Add(item);
         
     }
 
-    public EquipmentItem GetAvailable(string itemName)
+    public EquipmentItem? GetAvailable(string? itemName)
     {
-        itemRepository.
+        if (itemName is not null) return _itemRepository.GetAvailable(itemName);
+        else return null;
     }
 }

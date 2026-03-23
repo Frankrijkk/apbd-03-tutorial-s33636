@@ -5,7 +5,7 @@ namespace equipment_rental_service;
 
 public class RentalRepository
 {
-    private List<Rental> _rentals = new List<Rental>();
+    private List<Rental> _rentals;
     public static RentalRepository Instance { get; } = new RentalRepository();
     private void Save()
     {
@@ -30,7 +30,7 @@ public class RentalRepository
         {
             File.Create("rentals.csv").Close();
         }
-        using (var reader = new StreamReader("users.csv"))
+        using (var reader = new StreamReader("rentals.csv"))
         using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
         {
             var records = csv.GetRecords<Rental>();

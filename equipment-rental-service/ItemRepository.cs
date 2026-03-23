@@ -1,15 +1,14 @@
-using System.Xml.Linq;
 
 namespace equipment_rental_service;
 
 public class ItemRepository
 {
-    private List<EquipmentItem> items = new List<EquipmentItem>();
-    private List<EquipmentItem> availableItems = new List<EquipmentItem>();
+    private List<EquipmentItem> _items = new List<EquipmentItem>();
+    private readonly List<EquipmentItem> _availableItems = new List<EquipmentItem>();
     public bool Add(EquipmentItem item)
     {   
-        items.Add(item);
-        availableItems.Add(item);
+        _items.Add(item);
+        _availableItems.Add(item);
         Save();
         return true;
     }
@@ -21,17 +20,17 @@ public class ItemRepository
 
     public bool Rent(EquipmentItem item)
     {
-        if (availableItems.Contains(item))
+        if (_availableItems.Contains(item))
         {
-            availableItems.Remove(item);
+            _availableItems.Remove(item);
             return true;
         }
         return false;
     }
 
-    public EquipmentItem GetAvailable(string itemName)
+    public EquipmentItem? GetAvailable(string itemName)
     {
-        foreach (var item in availableItems)
+        foreach (var item in _availableItems)
         {
             if (item.Name == itemName) return item;
         }

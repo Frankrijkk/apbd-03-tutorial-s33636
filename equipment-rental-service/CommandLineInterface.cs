@@ -1,15 +1,13 @@
-﻿using System.ComponentModel;
-using System.Globalization;
-
+﻿
 namespace equipment_rental_service;
 
 class CommandLineInterface
 {
     
-    public void runMain(string[] args,System system) {
+    public void RunMain(string[] args,System system) {
         
         
-        Console.WriteLine("Welcome to the PAJTK equipment rental service");
+        Console.WriteLine("Welcome to the PJATK equipment rental service");
         while (true)
         {
             int choice = ChooseMenu(0,5, "What would you like to do?\n1. AddUser\n2. Add Equipment item\n3. Rent a piece of equipment\n4. Return a piece of equipment\n5. Confirm penalty payment\n0. exit");
@@ -22,7 +20,7 @@ class CommandLineInterface
                     HandleAddItem(system.ItemService);
                     break;
                 case 3:
-                    HandleRentItem();
+                    HandleRentItem(system);
                     break;
                 case 4:
                     HandleReturnItem();
@@ -46,29 +44,32 @@ class CommandLineInterface
         try
         {
             Console.WriteLine("What is the first name of the renter?");
-            string name = Console.ReadLine();
+            string? name = Console.ReadLine();
             Console.WriteLine("What is the last name of the item?");
-            string lastName = Console.ReadLine();
+            string? lastName = Console.ReadLine();
             Person? p = system.UserService.Get(name, lastName);
             if (p is null)
             {
                 Console.WriteLine("Person was not found in the system");
                 return;
             }
+
             Console.WriteLine("What is the name of the item?");
-            string itemName = Console.ReadLine();
-            EquipmentItem item = system.ItemService.GetAvailable(itemName);
+            string? itemName = Console.ReadLine();
+            EquipmentItem? item = system.ItemService.GetAvailable(itemName);
             if (item is null)
             {
                 Console.WriteLine("Item is currently not available");
                 return;
             }
-            
+
             Console.WriteLine("How many days would the rental be?(max 31)");
             int days;
             try
             {
-                days = int.Parse(Console.ReadLine());
+                string? daysString = Console.ReadLine();
+                if (daysString is null) return;
+                days = int.Parse(daysString);
                 if (days > 31)
                 {
                     Console.WriteLine("Not a valid number");
@@ -87,8 +88,12 @@ class CommandLineInterface
                 Console.WriteLine("Success");
                 return;
             }
-            
+
             Console.WriteLine("Failed, maybe try again");
+        }
+        catch (IOException)
+        {
+            Console.WriteLine("something went wrong please try again");
         }
     }
 
@@ -104,7 +109,8 @@ class CommandLineInterface
         if (type is null) return;
 
         Console.WriteLine("Enter Item name");
-        string name = Console.ReadLine();
+        string? name = Console.ReadLine();
+        if (name is null) return;
         EquipmentItem item = new EquipmentItem(type, name);
 
          if(itemService.Add(item)) return;
@@ -118,11 +124,11 @@ class CommandLineInterface
             try
             {
                 Console.WriteLine("Specify the name");
-                string name = Console.ReadLine();
+                string? name = Console.ReadLine();
                 Console.WriteLine("Specify the last name");
-                string lastName = Console.ReadLine();
+                string? lastName = Console.ReadLine();
                 PersonType? personType = ChooseMenuEnum<PersonType>( "What kind of person is it?");
-                if (personType is null) return;
+                if (personType is null||name is null||lastName is null) return;
                 
 
                 Person p = new Person(name, lastName, personType);
@@ -168,7 +174,8 @@ class CommandLineInterface
         while (true)
         {
             Console.WriteLine(message);
-            string choice = Console.ReadLine();
+            string? choice = Console.ReadLine();
+            if (choice is null) continue;
             try
             {
                 int choiceIndex = int.Parse(choice);

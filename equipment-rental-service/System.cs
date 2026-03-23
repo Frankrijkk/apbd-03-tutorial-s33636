@@ -9,13 +9,14 @@ public class System
         System system = new System();
         CommandLineInterface cmd = new  CommandLineInterface();
         
-        cmd.runMain(args,system);
+        cmd.RunMain(args,system);
     }
 
-    public System()
+    private System()
     {
         ItemRepository itemRepository = new ItemRepository();
-        ItemService = new ItemService(itemRepository);
+        RentalRepository rentalRepository = new RentalRepository();
+        ItemService = new ItemService(itemRepository,rentalRepository);
         UserRepository userRepository = new  UserRepository();
         UserService = new  UserService(userRepository);
     }

@@ -6,7 +6,7 @@ namespace equipment_rental_service;
 public class UserRepository
 {
     private List<Person> _persons;
-
+    
     public UserRepository()
     {
         _persons = new List<Person>();
@@ -16,26 +16,22 @@ public class UserRepository
         }
 
         {
-            using (var reader = new StreamReader("users.csv"))
-            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            using var reader = new StreamReader("users.csv");
+            using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+            var records = csv.GetRecords<Person>();
+            foreach (var person in records)
             {
-                var records = csv.GetRecords<Person>();
-                foreach (var person in records)
-                {
-                    _persons.Add(person);
-                }
+                _persons.Add(person);
             }
         }
     }
 
     private void Save()
-        {
-            using (var writer = new StreamWriter("users.csv"))
-            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
-            {
-                csv.WriteRecords(_persons);
-            }
-        }
+    {
+        using var writer = new StreamWriter("users.csv");
+        using var csv = new CsvWriter(writer, CultureInfo.InvariantCulture);
+        csv.WriteRecords(_persons);
+    }
     public bool AddPerson(Person person)
     {
         if (!_persons.Contains(person))
@@ -49,7 +45,7 @@ public class UserRepository
 
     public Person? Get(string firstname, string lastname)
     {
-        Person? person = new Person(firstname, lastname,null);
+        Person person = new Person(firstname, lastname,null);
         foreach (Person p in _persons)
         {
             if (person.Equals(p))

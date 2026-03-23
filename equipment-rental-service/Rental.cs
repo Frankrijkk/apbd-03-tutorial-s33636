@@ -1,4 +1,4 @@
-using System.Data;
+
 
 namespace equipment_rental_service;
 
@@ -6,7 +6,7 @@ public class Rental
 {
     public DateOnly RentalDate { get; set; } 
     private DateOnly DueDate {get; set;}
-    private Nullable<DateOnly> ReturnDate {get; set;}
+    private DateOnly? ReturnDate {get; set;}
     private EquipmentItem EquipmentItem {get; set;}
     private Person Person {get; set;}
 
