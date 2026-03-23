@@ -23,5 +23,9 @@ public class UserService
         return _userRepository.AddPerson(person);
         
     }
-    
+
+    public void UpdateUsers()
+    {
+        _userRepository.Save();
+    }
 }

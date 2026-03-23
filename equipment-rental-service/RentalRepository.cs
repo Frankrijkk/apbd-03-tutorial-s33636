@@ -7,7 +7,7 @@ namespace equipment_rental_service;
 public class RentalRepository
 {
     private List<Rental> _rentals;
-    private void Save()
+    public void Save()
     {
         using (var writer = new StreamWriter("rentals.csv"))
         {
@@ -92,6 +92,20 @@ public class RentalRepository
         if (count < maxcount) return true;
         return false;
 
+    }
+
+    public Rental? GetActive(Person p, string name)
+    {
+        foreach (Rental rental in _rentals)
+        {
+            if (rental.Person.Equals(p) && rental.EquipmentItem.Name.Equals(name)&& rental.ReturnDate is null)
+            {
+                return rental;
+            }
+            
+        }
+
+        return null;
     }
     
     

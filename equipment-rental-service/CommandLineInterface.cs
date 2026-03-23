@@ -25,12 +25,13 @@ class CommandLineInterface
                     HandleRentItem(rentalSystem);
                     break;
                 case 4:
-                    HandleReturnItem();
+                    HandleReturnItem(rentalSystem);
                     break;
                 case 5:
                     HandlePay();
                     break;
                 case 0:
+                    //rentalSystem.SaveAll();
                     return;
             }
         }
@@ -95,9 +96,34 @@ class CommandLineInterface
         }
     }
 
-    private void HandleReturnItem()
+    private void HandleReturnItem(RentalSystem rentalSystem)
     {
-        
+        try
+        {
+            Console.WriteLine("What is the first name of the renter?");
+            string? name = Console.ReadLine();
+            Console.WriteLine("What is the last name of the item?");
+            string? lastName = Console.ReadLine();
+            Person? p = rentalSystem.UserService.Get(name, lastName);
+            if (p is null)
+            {
+                Console.WriteLine("Person was not found in the system");
+                return;
+            }
+
+            Console.WriteLine("What is the name of the item?");
+            string? itemName = Console.ReadLine();
+            if (itemName is null) return;
+            string response = rentalSystem.ItemService.ReturnItem(p, itemName);
+            rentalSystem.UserService.UpdateUsers();
+            Console.WriteLine(response);
+            return;
+        }
+        catch (IOException)
+        {
+            Console.WriteLine("Something went wrong");
+            return;
+        }
     }
 
     private void HandleAddItem(ItemService itemService)

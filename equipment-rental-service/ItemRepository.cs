@@ -64,7 +64,7 @@ public class ItemRepository
             }
         }
     }
-    private void Save()
+    public void Save()
     {
         //name;Penalty;Count;type;p1+++p2
         using var writer = new StreamWriter("items.csv");
@@ -105,5 +105,18 @@ public class ItemRepository
         }
 
         return null;
+    }
+
+    public EquipmentItem Get(string itemName)
+    {
+        foreach (var item in _items)
+        {
+            if (item.Name == itemName)
+            {
+                return item;
+            }
+        }
+
+        return null; //should never happen
     }
 }

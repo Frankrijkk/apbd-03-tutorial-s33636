@@ -37,4 +37,32 @@ public class ItemService
         if (itemName is not null) return _itemRepository.GetAvailable(itemName);
         else return null;
     }
+
+    public EquipmentItem Get(string itemName)
+    {
+        return _itemRepository.Get(itemName);
+    }
+
+    public string ReturnItem(Person p, string itemName)
+    {
+        Rental? rental = _rentalRepository.GetActive(p, itemName);
+        if (rental is null) return "Couldn't find a rental for this item name";
+        EquipmentItem item = Get(rental.EquipmentItem.Name);
+        if (item is null) return "something went wrong";
+        item.CountAvailable++;
+        _itemRepository.Save();
+        rental.ReturnDate = DateOnly.FromDateTime(DateTime.Now);
+        _rentalRepository.Save();
+        
+        
+        if (rental.ReturnDate > rental.DueDate)
+        {
+            float debt = rental.EquipmentItem.DailyPenalty* (rental.ReturnDate.Value.DayNumber-rental.DueDate.DayNumber);
+            p.Debt = debt;
+            return "Extended the due date - Penalty issued: " + debt;
+        }
+
+        return "Return item success. No penalty issued";
+
+    }
 }
