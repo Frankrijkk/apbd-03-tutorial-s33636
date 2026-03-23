@@ -1,3 +1,4 @@
+using System.ComponentModel.Design;
 using System.Globalization;
 using CsvHelper;
 
@@ -39,6 +40,20 @@ public class RentalRepository
                 _rentals.Add(rental);
             }
         }
+    }
+
+    public bool Check(Person p)
+    {
+        int maxcount = p.GetMaxRentals();
+        int count = 0;
+        foreach (Rental rental in _rentals)
+        {
+            if (rental.Person.Equals(p)) count++;
+        }
+
+        if (count <= maxcount) return true;
+        return false;
+
     }
     
     

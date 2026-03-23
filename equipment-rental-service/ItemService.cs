@@ -12,6 +12,7 @@ public class ItemService
     public bool RentItem(EquipmentItem item,Person person,int length)
     {
         //person not in debt do the uni, person has max 5/2 rentals,
+        
         if (_itemRepository.Rent(item))
         {
             Rental rental = new Rental(item, person,length);

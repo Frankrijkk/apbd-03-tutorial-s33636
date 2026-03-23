@@ -31,4 +31,21 @@ public class Person : IEquatable<Person>
     {
         return HashCode.Combine(Name, LastName);
     }
+
+    public int GetMaxRentals()
+    {
+        switch (this.PersonType)
+        {
+            case equipment_rental_service.PersonType.Employee:
+                return 5;
+                break;
+            case equipment_rental_service.PersonType.Student:
+                return 2;
+                break;
+            default:
+                return 0;
+                break;
+            
+        }
+    }
 }

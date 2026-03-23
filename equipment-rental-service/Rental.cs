@@ -5,10 +5,10 @@ namespace equipment_rental_service;
 public class Rental
 {
     public DateOnly RentalDate { get; set; } 
-    private DateOnly DueDate {get; set;}
-    private DateOnly? ReturnDate {get; set;}
-    private EquipmentItem EquipmentItem {get; set;}
-    private Person Person {get; set;}
+    public DateOnly DueDate {get; set;}
+    public DateOnly? ReturnDate {get; set;}
+    public EquipmentItem EquipmentItem {get; set;}
+    public Person Person {get; set;}
 
     public Rental(EquipmentItem item,Person person, int length)
     {
