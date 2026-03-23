@@ -39,11 +39,14 @@ public class UserRepository
         }
     }
 
-    private void Save()
+    public void Save()
     {
         using var writer = new StreamWriter("users.csv");
-        using var csv = new CsvWriter(writer, CultureInfo.InvariantCulture);
-        csv.WriteRecords(_persons);
+        foreach (var person in _persons)
+        {
+            string fmt = person.Id + "," + person.Name + "," + person.LastName + "," + person.PersonType+","+ person.Debt;
+            writer.WriteLine(fmt);
+        }
     }
     public bool AddPerson(Person person)
     {
