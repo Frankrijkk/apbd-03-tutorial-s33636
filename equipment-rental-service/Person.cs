@@ -7,12 +7,14 @@ public class Person : IEquatable<Person>
     public string Name { get; }
     public string LastName { get; }
     public PersonType? PersonType{get;set;}
+    public float Debt{get;set;}
     public Person(string name, string lastName, PersonType? type)
     {
         id = ++_counter;
         this.Name = name;
         this.LastName = lastName;
         this.PersonType = type;
+        Debt = 0;
     }
 
     public bool Equals(Person? other)

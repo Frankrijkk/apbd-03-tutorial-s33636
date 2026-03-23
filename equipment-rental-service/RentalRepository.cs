@@ -7,7 +7,6 @@ namespace equipment_rental_service;
 public class RentalRepository
 {
     private List<Rental> _rentals;
-    public static RentalRepository Instance { get; } = new RentalRepository();
     private void Save()
     {
         using (var writer = new StreamWriter("rentals.csv"))
@@ -48,7 +47,11 @@ public class RentalRepository
         int count = 0;
         foreach (Rental rental in _rentals)
         {
-            if (rental.Person.Equals(p)) count++;
+            if (rental.Person.Equals(p))
+            {
+                
+                count++;
+            }
         }
 
         if (count <= maxcount) return true;

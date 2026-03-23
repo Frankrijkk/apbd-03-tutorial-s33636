@@ -9,19 +9,20 @@ public class ItemService
         this._itemRepository = itemRepository;
         this._rentalRepository = rentalRepository;
     }
-    public bool RentItem(EquipmentItem item,Person person,int length)
+    public string RentItem(EquipmentItem item,Person person,int length)
     {
         //person not in debt do the uni, person has max 5/2 rentals,
-        
+        if (person.Debt>0) return "Pay your Debt: "+person.Debt;
+        if (!_rentalRepository.Check(person)) return "Return something first";
         if (_itemRepository.Rent(item))
         {
             Rental rental = new Rental(item, person,length);
             _rentalRepository.Add(rental);
-            return true;
+            return "success";
         }
         else
         {
-            return false;
+            return "something went wrong";
         }
     }
 

@@ -85,13 +85,9 @@ class CommandLineInterface
             }
 
 
-            if (rentalSystem.ItemService.RentItem(item, p, days))
-            {
-                Console.WriteLine("Success");
-                return;
-            }
+            Console.WriteLine(rentalSystem.ItemService.RentItem(item, p, days));
+            return;
 
-            Console.WriteLine("Failed, maybe try again");
         }
         catch (IOException)
         {
