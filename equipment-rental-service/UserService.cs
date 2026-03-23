@@ -2,7 +2,7 @@ using System.Globalization;
 using CsvHelper;
 
 namespace equipment_rental_service;
-
+//TODO add a userRepository
 public class UserService
 {
 
@@ -11,13 +11,19 @@ public class UserService
     public UserService()
     {
         _persons = new List<Person>();
-        using (var reader = new StreamReader("users.csv"))
-        using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+        if (!File.Exists("users.csv"))
         {
-            var records = csv.GetRecords<Person>();
-            foreach (var person in records)
+            File.Create("users.csv").Close();
+        }
+        {
+            using (var reader = new StreamReader("users.csv"))
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
-                _persons.Add(person);
+                var records = csv.GetRecords<Person>();
+                foreach (var person in records)
+                {
+                    _persons.Add(person);
+                }
             }
         }
     }
@@ -31,10 +37,15 @@ public class UserService
                 }
     }
 
-    public void AddPerson(Person person)
+    public bool AddPerson(Person person)
     {
-        _persons.Add(person);
-        Save();
+        if (!_persons.Contains(person))
+        {
+            _persons.Add(person);
+            Save();
+            return true;
+        }
+        return false;
     }
     
 }

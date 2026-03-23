@@ -5,7 +5,7 @@ namespace equipment_rental_service;
 class CommandLineInterface
 {
     
-    static void runMain(string[] args) {
+    public void runMain(string[] args) {
         
         
         Console.WriteLine("Welcome to the PAJTK equipment rental service");
@@ -35,27 +35,27 @@ class CommandLineInterface
         }
     }
 
-    private static void HandlePay()
+    private void HandlePay()
     {
         throw new NotImplementedException();
     }
 
-    private static void HandleRentItem()
+    private void HandleRentItem()
     {
         throw new NotImplementedException();
     }
 
-    private static void HandleReturnItem()
+    private void HandleReturnItem()
     {
         throw new NotImplementedException();
     }
 
-    private static void HandleAddItem()
+    private void HandleAddItem()
     {
         throw new NotImplementedException();
     }
 
-    private static void HandleAddPerson()
+    private void HandleAddPerson()
     {
         while (true)
         {
