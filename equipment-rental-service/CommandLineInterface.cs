@@ -97,7 +97,7 @@ class CommandLineInterface
 
     private void HandleReturnItem()
     {
-        throw new NotImplementedException();
+        
     }
 
     private void HandleAddItem(ItemService itemService)

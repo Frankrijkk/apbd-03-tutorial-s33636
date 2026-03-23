@@ -18,9 +18,22 @@ public class UserRepository
         {
             using var reader = new StreamReader("users.csv");
             using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
-            var records = csv.GetRecords<Person>();
-            foreach (var person in records)
+            var records = File.ReadAllLines("users.csv");
+            foreach (var personstring in records)
             {
+                string[] personArray = personstring.Split(",");
+                PersonType? type = null;
+                switch (personArray[3])
+                {
+                    case "Student":
+                        type = PersonType.Student;
+                        break;
+                    case "Employee":
+                        type = PersonType.Employee;
+                        break;
+                        
+                }
+                Person person = new Person(int.Parse(personArray[0]), personArray[1], personArray[2],type,float.Parse(personArray[4]));
                 _persons.Add(person);
             }
         }

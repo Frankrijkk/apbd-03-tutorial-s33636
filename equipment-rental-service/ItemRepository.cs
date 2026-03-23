@@ -85,6 +85,7 @@ public class ItemRepository
                 if (availableItem.CountAvailable > 0)
                 {
                     availableItem.CountAvailable--;
+                    Save();
                     return true;
                 }
             }

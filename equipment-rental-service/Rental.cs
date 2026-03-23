@@ -9,7 +9,7 @@ public class Rental
     public DateOnly? ReturnDate {get; set;}
     public EquipmentItem EquipmentItem {get; set;}
     public Person Person {get; set;}
-
+    
     public Rental(EquipmentItem item,Person person, int length)
     {
         RentalDate = DateOnly.FromDateTime(DateTime.Now);
@@ -17,5 +17,15 @@ public class Rental
         ReturnDate = null;
         EquipmentItem = item;
         Person=person;
+    }
+
+    public Rental(DateOnly rentaldate, DateOnly dueDate, DateOnly? returnDate, EquipmentItem? item, Person person)
+    {
+        RentalDate = rentaldate;
+        DueDate = dueDate;
+        ReturnDate = returnDate;
+        EquipmentItem = item;
+        Person = person;
+        
     }
 }
