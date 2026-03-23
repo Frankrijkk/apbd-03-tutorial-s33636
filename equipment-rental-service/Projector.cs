@@ -11,9 +11,18 @@ public class Projector : EquipmentItem
         Resolution = res;
         Contrast = contrast;
         DailyPenalty = 7f;
+        Type = EquipmentType.Projector;
     }
-    public new string FormatProperties()
+    public Projector(string name, float dailyPenalty, int count, string Resolution, string contrast) : base(name,
+        dailyPenalty, count)
     {
-        return "Resolution: "+Resolution+" Contrast: "+Contrast;
+        Contrast = contrast;
+        this.Resolution = Resolution;
+        DailyPenalty = 10f;
+        Type = EquipmentType.Laptop;
+    }
+    public override string FormatProperties()
+    {
+        return ""+Resolution+"+++"+Contrast;
     }
 }

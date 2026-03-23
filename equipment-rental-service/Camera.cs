@@ -10,9 +10,18 @@ public class Camera :EquipmentItem
         this.Lens = lens;
         this.Resolution = res;
         DailyPenalty = 5f;
+        Type = EquipmentType.Camera;
     }
-    public new string FormatProperties()
+    public Camera(string name, float dailyPenalty, int count, string Lens, string Resolution) : base(name,
+        dailyPenalty, count)
     {
-        return "Lens: "+Lens+" Resolution: "+Resolution;
+        this.Lens = Lens;
+        this.Resolution = Resolution;
+        DailyPenalty = 10f;
+        Type = EquipmentType.Laptop;
+    }
+    public override string FormatProperties()
+    {
+        return Lens+"+++"+Resolution;
     }
 }

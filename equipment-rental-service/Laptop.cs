@@ -12,9 +12,19 @@ public class Laptop: EquipmentItem
         GraphicsCard = graphicsCard;
         Processor = processor;
         DailyPenalty = 10f;
+        Type = EquipmentType.Laptop;
     }
-    public new string FormatProperties()
+
+    public Laptop(string name, float dailyPenalty, int count, string graphicsCard, string processor) : base(name,
+        dailyPenalty, count)
     {
-        return "GPU: "+GraphicsCard+" CPU: "+Processor;
+        GraphicsCard = graphicsCard;
+        Processor = processor;
+        DailyPenalty = 10f;
+        Type = EquipmentType.Laptop;
+    }
+    public override string FormatProperties()
+    {
+        return GraphicsCard+"+++"+Processor;
     }
 }

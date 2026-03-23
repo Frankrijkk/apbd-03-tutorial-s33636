@@ -8,13 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bf23bb0-08c8-4a91-8e39-2a978f3adfd3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Camera.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Laptop.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Projector.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.equipment-rental-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.equipment-rental-service/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommandLineInterface.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CommandLineInterface.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Camera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Camera.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EquipmentItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EquipmentItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RentalSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ItemRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ItemRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Laptop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Laptop.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Projector.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,6 +138,32 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ItemRepository.cs</url>
+          <line>47</line>
+          <properties documentPath="$PROJECT_DIR$/ItemRepository.cs" containingFunctionPresentation="Constructor 'ItemRepository'">
+            <startOffsets>
+              <option value="1228" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1249" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ItemRepository.cs</url>
+          <line>74</line>
+          <properties documentPath="$PROJECT_DIR$/ItemRepository.cs" containingFunctionPresentation="Method 'Save'">
+            <startOffsets>
+              <option value="2404" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2426" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
