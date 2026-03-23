@@ -10,16 +10,48 @@ class CommandLineInterface
         Console.WriteLine("Welcome to the PAJTK equipment rental service");
         while (true)
         {
-            int choice = ChooseMenu(0,1, "What would you like to do?\n1. AddUser\n0. exit");
+            int choice = ChooseMenu(0,5, "What would you like to do?\n1. AddUser\n2. Add Equipment item\n3. Rent a piece of equipment\n4. Return a piece of equipment\n5. Confirm penalty payment\n0. exit");
             switch (choice)
             {
                 case 1:
                     HandleAddPerson();
                     break;
+                case 2:
+                    HandleAddItem();
+                    break;
+                case 3:
+                    HandleRentItem();
+                    break;
+                case 4:
+                    HandleReturnItem();
+                    break;
+                case 5:
+                    HandlePay();
+                    break;
                 case 0:
                     return;
             }
         }
+    }
+
+    private static void HandlePay()
+    {
+        throw new NotImplementedException();
+    }
+
+    private static void HandleRentItem()
+    {
+        throw new NotImplementedException();
+    }
+
+    private static void HandleReturnItem()
+    {
+        throw new NotImplementedException();
+    }
+
+    private static void HandleAddItem()
+    {
+        throw new NotImplementedException();
     }
 
     private static void HandleAddPerson()
