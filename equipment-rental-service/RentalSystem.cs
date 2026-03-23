@@ -1,18 +1,18 @@
 namespace equipment_rental_service;
 
-public class System
+public class RentalSystem
 {
     public UserService UserService { get; set; }
     public ItemService ItemService { get; set; }
     public static void Main(string[] args)
     {
-        System system = new System();
+        RentalSystem rentalSystem = new RentalSystem();
         CommandLineInterface cmd = new  CommandLineInterface();
         
-        cmd.RunMain(args,system);
+        cmd.RunMain(args,rentalSystem);
     }
 
-    private System()
+    private RentalSystem()
     {
         ItemRepository itemRepository = new ItemRepository();
         RentalRepository rentalRepository = new RentalRepository();

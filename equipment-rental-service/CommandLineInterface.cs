@@ -1,10 +1,12 @@
 ﻿
+using System.Runtime.CompilerServices;
+
 namespace equipment_rental_service;
 
 class CommandLineInterface
 {
     
-    public void RunMain(string[] args,System system) {
+    public void RunMain(string[] args,RentalSystem rentalSystem) {
         
         
         Console.WriteLine("Welcome to the PJATK equipment rental service");
@@ -14,13 +16,13 @@ class CommandLineInterface
             switch (choice)
             {
                 case 1:
-                    HandleAddPerson(system.UserService);
+                    HandleAddPerson(rentalSystem.UserService);
                     break;
                 case 2:
-                    HandleAddItem(system.ItemService);
+                    HandleAddItem(rentalSystem.ItemService);
                     break;
                 case 3:
-                    HandleRentItem(system);
+                    HandleRentItem(rentalSystem);
                     break;
                 case 4:
                     HandleReturnItem();
@@ -39,7 +41,7 @@ class CommandLineInterface
         throw new NotImplementedException();
     }
 
-    private void HandleRentItem(System system)
+    private void HandleRentItem(RentalSystem rentalSystem)
     {
         try
         {
@@ -47,7 +49,7 @@ class CommandLineInterface
             string? name = Console.ReadLine();
             Console.WriteLine("What is the last name of the item?");
             string? lastName = Console.ReadLine();
-            Person? p = system.UserService.Get(name, lastName);
+            Person? p = rentalSystem.UserService.Get(name, lastName);
             if (p is null)
             {
                 Console.WriteLine("Person was not found in the system");
@@ -56,7 +58,7 @@ class CommandLineInterface
 
             Console.WriteLine("What is the name of the item?");
             string? itemName = Console.ReadLine();
-            EquipmentItem? item = system.ItemService.GetAvailable(itemName);
+            EquipmentItem? item = rentalSystem.ItemService.GetAvailable(itemName);
             if (item is null)
             {
                 Console.WriteLine("Item is currently not available");
@@ -83,7 +85,7 @@ class CommandLineInterface
             }
 
 
-            if (system.ItemService.RentItem(item, p, days))
+            if (rentalSystem.ItemService.RentItem(item, p, days))
             {
                 Console.WriteLine("Success");
                 return;
@@ -111,10 +113,44 @@ class CommandLineInterface
         Console.WriteLine("Enter Item name");
         string? name = Console.ReadLine();
         if (name is null) return;
-        EquipmentItem item = new EquipmentItem(type, name);
+        EquipmentItem item=null;
+        switch (type)
+        {
+            case EquipmentType.Laptop:
+                Console.WriteLine("Enter the laptops graphics card");
+                string? gpu =  Console.ReadLine();
+                Console.WriteLine("Enter the laptops processor");
+                string? cpu =  Console.ReadLine();
+                if (gpu is null||cpu is null)return;
+                item = new Laptop(name,gpu,cpu);
+                break;
+            case EquipmentType.Camera:
+                Console.WriteLine("Enter the Camera's lens type");
+                string? lens =  Console.ReadLine();
+                Console.WriteLine("Enter the Camera's photo resolution");
+                string? res =  Console.ReadLine();
+                if (lens is null||res is null)return;
+                item = new Camera(name,lens,res);
+                break;
+            case EquipmentType.Projector:
+                Console.WriteLine("Enter the Projector's resoultion");
+                string? reso =  Console.ReadLine();
+                Console.WriteLine("Enter the Projector's contrast");
+                string? contr =  Console.ReadLine();
+                if (reso is null||contr is null)return;
+                item = new Projector(name,reso,contr);
+                break;
+            default:
+                break;
+        }
+        if(item is not null)
+            if (itemService.Add(item))
+            {
+                Console.WriteLine("Success");
+                return;
+            }
 
-         if(itemService.Add(item)) return;
-         Console.WriteLine("Item was not added");
+        Console.WriteLine("Item was not added");
     }
 
     private void HandleAddPerson(UserService service)

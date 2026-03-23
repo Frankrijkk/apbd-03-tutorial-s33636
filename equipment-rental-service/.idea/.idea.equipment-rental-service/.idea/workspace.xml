@@ -8,17 +8,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bf23bb0-08c8-4a91-8e39-2a978f3adfd3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Camera.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Laptop.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Projector.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.equipment-rental-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.equipment-rental-service/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CommandLineInterface.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CommandLineInterface.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EquipmentItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EquipmentItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItemRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ItemRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItemService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ItemService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Person.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Person.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rental.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rental.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RentalRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RentalRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System.cs" beforeDir="false" afterPath="$PROJECT_DIR$/System.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/System.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RentalSystem.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,15 +41,17 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7fe79a50e72b83d86bcb87e6e177c55c4e64595e94e8591a17f6ec586ffc9f71/Interop.IOErrors.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Camera.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/EquipmentItem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/EquipmentType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ItemRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ItemService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Laptop.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Person.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PersonType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Projector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Rental.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/RentalRepository.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/System.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/UserRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/UserService.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -73,7 +71,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "items",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -141,19 +139,6 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/UserRepository.cs</url>
-          <line>17</line>
-          <properties documentPath="$PROJECT_DIR$/UserRepository.cs" containingFunctionPresentation="Constructor 'UserRepository'">
-            <startOffsets>
-              <option value="349" />
-            </startOffsets>
-            <endOffsets>
-              <option value="398" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
