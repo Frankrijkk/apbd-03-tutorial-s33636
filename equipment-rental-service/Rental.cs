@@ -28,4 +28,9 @@ public class Rental
         Person = person;
         
     }
+
+    public override string ToString()
+    {
+        return Person +":" +RentalDate +  " " + DueDate + " " + ReturnDate + " " + EquipmentItem;
+    }
 }

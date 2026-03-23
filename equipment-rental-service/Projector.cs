@@ -25,4 +25,8 @@ public class Projector : EquipmentItem
     {
         return ""+Resolution+"+++"+Contrast;
     }
+    public override string ToString()
+    {
+        return Type+": "+ Name+" - " + Contrast+ " - " +  Resolution;
+    }
 }

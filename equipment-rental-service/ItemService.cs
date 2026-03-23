@@ -86,4 +86,20 @@ public class ItemService
         }
         return finalString;
     }
+
+    public string GetRentals(Person p)
+    {
+        List<Rental> l = _rentalRepository.GetAll();
+        string finalstring="";
+        foreach (var r in l)
+        {
+            if (r.Person.Equals(p))
+            {
+                finalstring += r.ToString() + "\n";
+            }
+        }
+
+        return finalstring;
+
+    }
 }

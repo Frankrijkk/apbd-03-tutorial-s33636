@@ -58,4 +58,9 @@ public class Person : IEquatable<Person>
             
         }
     }
+
+    public override string ToString()
+    {
+        return PersonType+": "+Name+" "+LastName;
+    }
 }

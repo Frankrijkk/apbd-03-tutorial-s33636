@@ -24,4 +24,8 @@ public class Camera :EquipmentItem
     {
         return Lens+"+++"+Resolution;
     }
+    public override string ToString()
+    {
+        return Type+": "+ Name+" - " + Lens+ " - " +  Resolution;
+    }
 }

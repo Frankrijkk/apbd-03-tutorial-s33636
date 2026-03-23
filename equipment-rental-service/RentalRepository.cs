@@ -17,7 +17,7 @@ public class RentalRepository
                 string returndate = rental.ReturnDate is null ? "null" : rental.ReturnDate.Value.ToString("dd/MM/yyyy");
                 string fmt = rental.RentalDate.ToString("dd/MM/yyyy")+";"+ rental.DueDate.ToString("dd/MM/yyyy")+ ";"+returndate+";"+availableItem.Name + ";" + availableItem.DailyPenalty + ";" + availableItem.CountAvailable +
                              ";" + availableItem.Type + ";" + availableItem.FormatProperties()+";"+rental.Person.Name+";"+rental.Person.LastName;
-                writer.Write(fmt);
+                writer.WriteLine(fmt);
             }
             
                 
@@ -107,6 +107,10 @@ public class RentalRepository
 
         return null;
     }
-    
+
+    public List<Rental> GetAll()
+    {
+        return _rentals;
+    }
     
 }
