@@ -41,9 +41,55 @@ class CommandLineInterface
         throw new NotImplementedException();
     }
 
-    private void HandleRentItem()
+    private void HandleRentItem(System system)
     {
-        throw new NotImplementedException();
+        try
+        {
+            Console.WriteLine("What is the first name of the renter?");
+            string name = Console.ReadLine();
+            Console.WriteLine("What is the last name of the item?");
+            string lastName = Console.ReadLine();
+            Person? p = system.UserService.Get(name, lastName);
+            if (p is null)
+            {
+                Console.WriteLine("Person was not found in the system");
+                return;
+            }
+            Console.WriteLine("What is the name of the item?");
+            string itemName = Console.ReadLine();
+            EquipmentItem item = system.ItemService.GetAvailable(itemName);
+            if (item is null)
+            {
+                Console.WriteLine("Item is currently not available");
+                return;
+            }
+            
+            Console.WriteLine("How many days would the rental be?(max 31)");
+            int days;
+            try
+            {
+                days = int.Parse(Console.ReadLine());
+                if (days > 31)
+                {
+                    Console.WriteLine("Not a valid number");
+                    return;
+                }
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Not a valid number");
+                return;
+            }
+
+
+            if (system.ItemService.RentItem(item, p, days))
+            {
+                Console.WriteLine("Success");
+                return;
+            }
+            
+            Console.WriteLine("Failed, maybe try again");
+        }
     }
 
     private void HandleReturnItem()
@@ -61,7 +107,8 @@ class CommandLineInterface
         string name = Console.ReadLine();
         EquipmentItem item = new EquipmentItem(type, name);
 
-        itemService.Add(item);
+         if(itemService.Add(item)) return;
+         Console.WriteLine("Item was not added");
     }
 
     private void HandleAddPerson(UserService service)
@@ -79,7 +126,7 @@ class CommandLineInterface
                 
 
                 Person p = new Person(name, lastName, personType);
-                if(service.AddPerson((p))) return;
+                if(service.Add((p))) return;
                 Console.WriteLine("Person was not added");
 
             }
@@ -104,6 +151,7 @@ class CommandLineInterface
                 Console.WriteLine($"{i + 1}. {options[i]}");
             }
 
+            Console.WriteLine("0. Exit");
             Console.Write("\nSelect an option: ");
             if (int.TryParse(Console.ReadLine(), out int choice) && choice >= 0 && choice <= options.Length)
             {

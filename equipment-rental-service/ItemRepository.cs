@@ -28,4 +28,14 @@ public class ItemRepository
         }
         return false;
     }
+
+    public EquipmentItem GetAvailable(string itemName)
+    {
+        foreach (var item in availableItems)
+        {
+            if (item.Name == itemName) return item;
+        }
+
+        return null;
+    }
 }

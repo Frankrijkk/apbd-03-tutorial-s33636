@@ -14,6 +14,9 @@ public class System
 
     public System()
     {
-        
+        ItemRepository itemRepository = new ItemRepository();
+        ItemService = new ItemService(itemRepository);
+        UserRepository userRepository = new  UserRepository();
+        UserService = new  UserService(userRepository);
     }
 }

@@ -8,15 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bf23bb0-08c8-4a91-8e39-2a978f3adfd3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/EquipmentType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PersonType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.equipment-rental-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.equipment-rental-service/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CommandLineInterface.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CommandLineInterface.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EquipmentItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EquipmentItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItemRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ItemRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ItemService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ItemService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Person.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Person.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/System.cs" beforeDir="false" afterPath="$PROJECT_DIR$/System.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,12 +43,12 @@
     <setting file="file://$PROJECT_DIR$/EquipmentType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ItemRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ItemService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Laptop.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Person.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PersonType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Rental.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/RentalRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/System.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/UserRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/UserService.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
