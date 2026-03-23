@@ -1,11 +1,12 @@
-﻿using System.Globalization;
+﻿using System.ComponentModel;
+using System.Globalization;
 
 namespace equipment_rental_service;
 
 class CommandLineInterface
 {
     
-    public void runMain(string[] args) {
+    public void runMain(string[] args,System system) {
         
         
         Console.WriteLine("Welcome to the PAJTK equipment rental service");
@@ -15,10 +16,10 @@ class CommandLineInterface
             switch (choice)
             {
                 case 1:
-                    HandleAddPerson();
+                    HandleAddPerson(system.UserService);
                     break;
                 case 2:
-                    HandleAddItem();
+                    HandleAddItem(system.ItemService);
                     break;
                 case 3:
                     HandleRentItem();
@@ -50,12 +51,20 @@ class CommandLineInterface
         throw new NotImplementedException();
     }
 
-    private void HandleAddItem()
+    private void HandleAddItem(ItemService itemService)
     {
-        throw new NotImplementedException();
+        
+        EquipmentType? type = ChooseMenuEnum<EquipmentType>("What type of item would you like to add?\\n");
+        if (type is null) return;
+
+        Console.WriteLine("Enter Item name");
+        string name = Console.ReadLine();
+        EquipmentItem item = new EquipmentItem(type, name);
+
+        itemService.Add(item);
     }
 
-    private void HandleAddPerson()
+    private void HandleAddPerson(UserService service)
     {
         while (true)
         {
@@ -65,20 +74,12 @@ class CommandLineInterface
                 string name = Console.ReadLine();
                 Console.WriteLine("Specify the last name");
                 string lastName = Console.ReadLine();
-                int choice = ChooseMenu(1, 2, "Is it an employee or a student?\n1. Employee\n2. Student");
-                bool isEmployee = false;
-                switch (choice)
-                {
-                    case 1:
-                        isEmployee = true;
-                        break;
-                    case 2:
-                        isEmployee = false;
-                        break;
-                }
+                PersonType? personType = ChooseMenuEnum<PersonType>( "What kind of person is it?");
+                if (personType is null) return;
+                
 
-                Person p = new Person(name, lastName, isEmployee);
-                if(UserService.Service.AddPerson((p))) return;
+                Person p = new Person(name, lastName, personType);
+                if(service.AddPerson((p))) return;
                 Console.WriteLine("Person was not added");
 
             }
@@ -86,6 +87,31 @@ class CommandLineInterface
             {
                 Console.WriteLine("Not a valid option");
             }
+        }
+    }
+
+    private static T? ChooseMenuEnum<T>(string prompt) where T : struct, Enum
+    {
+
+
+        while (true)
+        {
+            Console.WriteLine(prompt);
+            T[] options = (T[])Enum.GetValues(typeof(T));
+
+            for (int i = 0; i < options.Length; i++)
+            {
+                Console.WriteLine($"{i + 1}. {options[i]}");
+            }
+
+            Console.Write("\nSelect an option: ");
+            if (int.TryParse(Console.ReadLine(), out int choice) && choice >= 0 && choice <= options.Length)
+            {
+                if (choice == 0) return null;
+                return options[choice - 1];
+            }
+
+            Console.WriteLine("Invalid selection. Please try again.");
         }
     }
 

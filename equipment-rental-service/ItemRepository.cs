@@ -1,13 +1,22 @@
+using System.Xml.Linq;
+
 namespace equipment_rental_service;
 
 public class ItemRepository
 {
     private List<EquipmentItem> items = new List<EquipmentItem>();
     private List<EquipmentItem> availableItems = new List<EquipmentItem>();
-    public void Add(EquipmentItem item)
+    public bool Add(EquipmentItem item)
     {   
         items.Add(item);
         availableItems.Add(item);
+        Save();
+        return true;
+    }
+
+    private void Save()
+    {
+        return; //TODO
     }
 
     public bool Rent(EquipmentItem item)

@@ -2,14 +2,17 @@ namespace equipment_rental_service;
 
 public class Person : IEquatable<Person>
 {
+    static int _counter = 0;
+    private int id;
     public string name { get; }
     public string lastName { get; }
-    public bool isEmployee{get;set;}
-    public Person(string name, string lastName, bool isEmployee)
+    public PersonType? PersonType{get;set;}
+    public Person(string name, string lastName, PersonType? type)
     {
+        id = ++_counter;
         this.name = name;
         this.lastName = lastName;
-        this.isEmployee = isEmployee;
+        this.PersonType = type;
     }
 
     public bool Equals(Person? other)

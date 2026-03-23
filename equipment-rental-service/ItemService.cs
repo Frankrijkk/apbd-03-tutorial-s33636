@@ -17,4 +17,10 @@ public class ItemService
             return false;
         }
     }
+
+    public bool Add(EquipmentItem item)
+    {
+        return itemRepository.Add(item);
+        
+    }
 }
