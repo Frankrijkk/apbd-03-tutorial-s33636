@@ -4,7 +4,8 @@ namespace equipment_rental_service;
 
 class CommandLineInterface
 {
-    static void Main(string[] args) {
+    
+    static void runMain(string[] args) {
         
         
         Console.WriteLine("Welcome to the PAJTK equipment rental service");
@@ -77,8 +78,8 @@ class CommandLineInterface
                 }
 
                 Person p = new Person(name, lastName, isEmployee);
-                UserService.Service.AddPerson((p));
-
+                if(UserService.Service.AddPerson((p))) return;
+                Console.WriteLine("Person was not added");
 
             }
             catch (FormatException)
